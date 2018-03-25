@@ -1,11 +1,11 @@
 {
     "mappings": [
         {
-            "from": "jfkldsajf",
+            "from": "google",
             "to": "https://www.google.com"
         },
         {
-            "from": "fjskfldsaj",
+            "from": "yahoo",
             "to": "https://www.yahoo.com"
         },
         {
