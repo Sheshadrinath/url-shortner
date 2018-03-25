@@ -7,6 +7,18 @@
         {
             "from": "fjskfldsaj",
             "to": "https://www.yahoo.com"
+        },
+        {
+            "from": "honeywell",
+            "to": "https://www.honeywell.com"
+        },
+        {
+            "from": "apple",
+            "to": "https://www.apple.com"
+        },
+        {
+            "from": "nodejs",
+            "to": "https://www.nodejs.org"
         }
     ]
 }
