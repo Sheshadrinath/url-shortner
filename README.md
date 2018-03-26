@@ -10,7 +10,7 @@ Please follow the step-by-step installation and hosting instructions.
 2. Express, Express Router
 3. Lodash
 4. Body-Parser
-5. Mongoose
+5. Mongoose, MongoDB
 
 ### Dev Dependencies
 None
@@ -22,10 +22,20 @@ None
 4. After cloing this repository, open NodeJs command prompt (Windows) or terminal (Mac) and navigate to this folder until you see folder src
 5. Enter command `npm install`. This command will install all necessary packages
 6. After successful installation of node packages, in the command prompt or terminal, please enter the command `node app.js` to start the server.
-7. From the browser's URL enter the address http://localhost:3000?q=google for testing. Please note that we are using the port 3000 in *app.js* file. Please change the port in *app.js* file if required to any necessary number.
-8. If the mapping is not available from the static or configured list, then error 404 is thrown back to user.
+7. Install MongoDB. Refer to the next section to install MongoDB
+8. From the browser's URL enter the address http://localhost:3000?q=google for testing. Please note that we are using the port 3000 in *app.js* file. Please change the port in *app.js* file if required to any necessary number.
+9. If the mapping is not available from the static or configured list, then error 404 is thrown back to user.
 
-### Adding items to the mapping
+## Installing MongoDB
+1. Please install MongoDb from URL: https://www.mongodb.com/download-center?jmp=nav
+2. Download the installer based on your operating system.
+3. Once downloaded, please install using the installer. 
+4. For Windows:
+    a. Once installed, please create a folder C:\data\db
+    b. Open command prompt and navigate to folder C:\Program Files\MongoDB\Server\3.x\bin
+    c. Select mongod.exe to start the MongoDB
+
+## Adding items to the mapping
 There is an API already with this service through which new mapping can be added. Please refer to the *api.js* file for more details. Through Postman, please make a POST call to add a new item to the mapping. Adding new item to the mapping collection does not require any service restart. The service updates it's internal collection also updates the file so that the mappings are not lost when service is restarted.
 
 Open Postman, and make a POST call to http://localhost:3000 with raw body content. Also please remember to send data in JSON format, so please select **JSON(application/json)** while posting the data.
