@@ -27,7 +27,7 @@ None
 ### Adding items to the mapping
 There is an API already with this service through which new mapping can be added. Please refer to the *api.js* file for more details. Through Postman, please make a POST call to add a new item to the mapping. Adding new item to the mapping collection does not require any service restart. The service updates it's internal collection also updates the file so that the mappings are not lost when service is restarted.
 
-Open Postman, and make a POST call to http://localhost:3000 with raw body content 
+Open Postman, and make a POST call to http://localhost:3000 with raw body content. Also please remember to send data in JSON format, so please select **JSON(application/json)** while posting the data.
 
 `{
     "from": "nodejs",
