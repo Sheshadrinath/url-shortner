@@ -31,9 +31,15 @@ None
 2. Download the installer based on your operating system.
 3. Once downloaded, please install using the installer. 
 4. For Windows:
-    a. Once installed, please create a folder C:\data\db
-    b. Open command prompt and navigate to folder C:\Program Files\MongoDB\Server\3.x\bin
-    c. Select mongod.exe to start the MongoDB
+    - Once installed, please create a folder C:\data\db
+    - Open command prompt and navigate to folder C:\Program Files\MongoDB\Server\3.x\bin
+    - Select mongod.exe to start the MongoDB
+5. For Mac:
+    - Check if you have installed `brew` in your mac.
+    - If `brew` doesnot exist install the same by entering the command in the terminal `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+    - Once `brew` is installed, enter the next command `brew install mongodb` in the terminal
+    - After successful installation create data/db folder by entering the command `mkdir -p /data/db`. If you receive access or permission related issues use `sudo` command.
+    - Now enter the command `mongod` in the terminal to start MongoDB server. In the terminal you should also see a message saying `[initandlisten] waiting for connections on port 27017`.
 
 ## Adding items to the mapping
 There is an API already with this service through which new mapping can be added. Please refer to the *api.js* file for more details. Through Postman, please make a POST call to add a new item to the mapping. Adding new item to the mapping collection does not require any service restart. The service updates it's internal collection also updates the file so that the mappings are not lost when service is restarted.
@@ -47,7 +53,7 @@ Open Postman, and make a POST call to http://localhost:3000 with raw body conten
 }`
 
 # Starting and configuring Client application
-
+*This is about to come. Development is in progress.*
 
 # Roadmap
 Currently this application uses the static mapping as you can see in the mapping.json file. But in coming days, we will be providing support to:
