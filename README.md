@@ -10,6 +10,7 @@ Please follow the step-by-step installation and hosting instructions.
 2. Express, Express Router
 3. Lodash
 4. Body-Parser
+5. Mongoose
 
 ### Dev Dependencies
 None

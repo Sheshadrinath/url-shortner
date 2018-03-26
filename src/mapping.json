@@ -19,6 +19,11 @@
         {
             "from": "nodejs",
             "to": "https://www.nodejs.org"
+        },
+        {
+            "from": "mongorestexample",
+            "to": "https://www.callicoder.com/node-js-express-mongodb-restful-crud-api-tutorial/",
+            "expiry": "2018-04-21 00:00:00"
         }
     ]
 }
