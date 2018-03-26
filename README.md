@@ -21,7 +21,7 @@ None
 4. After cloing this repository, open NodeJs command prompt (Windows) or terminal (Mac) and navigate to this folder until you see folder src
 5. Enter command `npm install`. This command will install all necessary packages
 6. After successful installation of node packages, in the command prompt or terminal, please enter the command `node app.js` to start the server.
-7. From the browser's URL enter the address http://localhost:3000?q=jfkldsajf for testing. Please note that we are using the port 3000 in *app.js* file. Please change the port in *app.js* file if required to any necessary number.
+7. From the browser's URL enter the address http://localhost:3000?q=google for testing. Please note that we are using the port 3000 in *app.js* file. Please change the port in *app.js* file if required to any necessary number.
 8. If the mapping is not available from the static or configured list, then error 404 is thrown back to user.
 
 ### Adding items to the mapping
