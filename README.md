@@ -15,10 +15,10 @@ Please follow the step-by-step installation and hosting instructions.
 ### Dev Dependencies
 None
 
-## Confguration and Execution
+## Confguration and Execution for Server
 1. Clone the application from the Git repository https://github.com/Sheshadrinath/url-shortner.git
 2. Make sure you have installed nodejs. If not, please install NodeJs from https://nodejs.org/. You may install the latest and stable version.
-3. Once you extract the code after downloading from the above git repository, please find the file *mapping.json* inside *src* folder. Update your mappings as necessary.
+3. Once you extract the code after downloading from the above git repository, please find the file *mapping.json* inside *src* folder inside *server* folder. Update your mappings as necessary.
 4. After cloing this repository, open NodeJs command prompt (Windows) or terminal (Mac) and navigate to this folder until you see folder src
 5. Enter command `npm install`. This command will install all necessary packages
 6. After successful installation of node packages, in the command prompt or terminal, please enter the command `node app.js` to start the server.
@@ -45,6 +45,9 @@ Open Postman, and make a POST call to http://localhost:3000 with raw body conten
     "to": "https://www.nodejs.org",
     "expiry": "2018-04-21 00:00:00"
 }`
+
+# Starting and configuring Client application
+
 
 # Roadmap
 Currently this application uses the static mapping as you can see in the mapping.json file. But in coming days, we will be providing support to:
