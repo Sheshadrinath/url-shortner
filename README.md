@@ -52,6 +52,9 @@ Open Postman, and make a POST call to http://localhost:3000 with raw body conten
     "expiry": "2018-04-21 00:00:00"
 }`
 
+## Using API's for managing mappings
+*API's to manage URL mappings are being developed, will be updated soon!!*
+
 # Starting and configuring Client application
 *This is about to come. Development is in progress.*
 
