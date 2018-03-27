@@ -35,10 +35,10 @@ router.post('/', function(req, res) {
         })
 
         console.log(mappingContent.mappings);
-        res.send('Item added successfully!!');
+        res.status(201).send('Item added successfully!!');
     } else {
         console.log('Cannot add this mapping since the key already exists!!');
-        res.status(200).send('Cannot add this mapping since the key already exists!!');
+        res.status(500).send('Cannot add this mapping since the key already exists!!');
     }
 });
 

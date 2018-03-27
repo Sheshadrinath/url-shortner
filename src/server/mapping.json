@@ -28,6 +28,11 @@
         {
             "from": "microsoft",
             "to": "https://www.microsoft.com"
+        },
+        {
+            "from": "mongostarter",
+            "to": "https://resources.mongodb.com/getting-started-with-mongodb?jmp=blog&_ga=2.31883895.876284036.1522058495-946310870.1522058495",
+            "expiry": "2018-04-21 00:00:00"
         }
     ]
 }
