@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var MappingSchema = new Schema({
     key: { type: String, required: true, unique: true },
-    value: { type: String, required: true },
+    value: { type: String, required: true, unique: true },
     expiryDate: { type: Date, default: Date.now }
 });
 

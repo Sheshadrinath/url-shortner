@@ -1,7 +1,5 @@
 const config = require('../config/config.json');
-const _ = require('lodash');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const q = require('q');
 
 var Mapping = require('../models/Mapping.model');
