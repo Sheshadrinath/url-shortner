@@ -28,7 +28,6 @@ function editExistiingUrlMapping(req, res) {
 }
 
 function deleteExistingUrlMapping(req, res) {
-    console.log(req.params);
     service.deleteExistingUrlMapping(req.params.key)
             .then(function(result) {
                 if (result)

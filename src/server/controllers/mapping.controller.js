@@ -17,7 +17,6 @@ function getAllUrlMappings(req, res) {
 function getUrlMapping(req, res) {
     service.getAMapping(req.params._id)
             .then(function(result) {
-                console.log('Data received at controller');
                 res.status(200).send(result);
             });
 }

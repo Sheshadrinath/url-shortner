@@ -9,4 +9,4 @@ app.use(routes);
 app.use('/url', require('./controllers/mapping.controller'));
 app.use('/mapping', require('./controllers/mapping.admin.controller'));
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(3000, () => console.log('UrlShortner app listening on port 3000!'));
