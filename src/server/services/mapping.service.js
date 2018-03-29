@@ -23,7 +23,6 @@ function getAllMappings() {
     .exec(function(err, maps) {
         if (err) deferred.reject(err);
         else {
-            console.log(maps);
             deferred.resolve(maps);
         }
     });
