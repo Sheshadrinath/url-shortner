@@ -84,6 +84,7 @@ Enter the address http://\<hostname\>:\<port\>/url/\<key\>. Select `GET` method.
 
 # Roadmap
 Currently this application uses the static mapping as you can see in the mapping.json file. But in coming days, we will be providing support to:
+- [ ] Unit test cases will be added.
 - [ ] To add mapping by providing the user interface where user can add/edit/remove mappings. This will avoid user to manipulate the JSON mapping file manually. 
 - [ ] We will also provide support to fetch the mappings from cache server (both internal or external) too if configured.
 - [ ] Time-based mappings
