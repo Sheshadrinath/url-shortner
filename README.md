@@ -13,7 +13,8 @@ Please follow the step-by-step installation and hosting instructions.
 5. Mongoose, MongoDB
 
 ### Dev Dependencies
-None
+1. Jasmine
+2. Request
 
 ## Confguration and Execution for Server
 1. Clone the application from the Git repository https://github.com/Sheshadrinath/url-shortner.git
@@ -81,6 +82,13 @@ Enter the address http://\<hostname\>:\<port\>/url/\<key\>. Select `GET` method.
 
 # Starting and configuring Client application
 *This is about to come. Development is in progress.*
+
+# Running test cases
+This section explains about the unit test cases written in Jasmine
+
+## Running server test cases
+1. Navigate to the `src/server` folder in the command prompt (Windows) or terminal (Mac).
+2. Run command `npm run test` to start executing all test cases and shows result
 
 # Roadmap
 Currently this application uses the static mapping as you can see in the mapping.json file. But in coming days, we will be providing support to:
