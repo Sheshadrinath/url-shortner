@@ -66,10 +66,12 @@ Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method
 }
 ```
 
-![Image of Yaktocat](https://raw.githubusercontent.com/Sheshadrinath/url-shortner/master/resources/images/Edit%20Mapping.png)
+![Image of edit mapping](https://raw.githubusercontent.com/Sheshadrinath/url-shortner/master/resources/images/Edit%20Mapping.png)
 
 ### To remove an existing mapping
 Enter the address http://\<hostname\>:\<port\>/mapping/\<key\>. Select `DELETE` method. 
+
+![Image of remove mapping](https://github.com/Sheshadrinath/url-shortner/blob/master/resources/images/Remove%20Mapping.png?raw=true)
 
 ### To list all mappings
 Enter the address http://\<hostname\>:\<port\>/url/urls. Select `GET` method. This should return all existing mappings.
