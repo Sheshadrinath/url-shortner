@@ -45,35 +45,47 @@ None
 Make sure the services are running without any errors. You can create, edit or delete mappings using the client application provided or by using the Postman API tools. 
 
 ### To add a new item
-Enter the address http://hostname:3000/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*
-`{    
+Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*
+```json
+{    
 	"key": "key",
 	"value": "<url>",
 	"expiryDate": "<expiry>"
-}`
+}
+```
+
+![Image of add mapping](https://github.com/Sheshadrinath/url-shortner/blob/master/resources/images/Add%20Mapping.png?raw=true)
 
 ### To edit an existing mapping
-Enter the address http://hostname:3000/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*
-`{    
+Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*
+```json
+{
 	"key": "key",
 	"value": "<url>",
 	"expiryDate": "<expiry>"
-}`
+}
+```
+
+![Image of Yaktocat](https://raw.githubusercontent.com/Sheshadrinath/url-shortner/master/resources/images/Edit%20Mapping.png)
 
 ### To remove an existing mapping
-Enter the address http://hostname:3000/mapping/key. Select `DELETE` method. 
+Enter the address http://\<hostname\>:\<port\>/mapping/\<key\>. Select `DELETE` method. 
 
 ### To list all mappings
-Enter the address http://hostname:3000/url/urls. Select `GET` method. This should return all existing mappings.
+Enter the address http://\<hostname\>:\<port\>/url/urls. Select `GET` method. This should return all existing mappings.
 
 ### To retrieve a single mapping
-Enter the address http://hostname:3000/url/key. Select `GET` method. This should return existing mapping.
+Enter the address http://\<hostname\>:\<port\>/url/\<key\>. Select `GET` method. This should return existing mapping.
 
 # Starting and configuring Client application
 *This is about to come. Development is in progress.*
 
 # Roadmap
 Currently this application uses the static mapping as you can see in the mapping.json file. But in coming days, we will be providing support to:
-1. To add mapping by providing the user interface where user can add/edit/remove mappings. This will avoid user to manipulate the JSON mapping file manually. 
-2. We will also provide support to fetch the mappings from cache server (both internal or external) too if configured.
-3. Time-based mappings
+- [ ] To add mapping by providing the user interface where user can add/edit/remove mappings. This will avoid user to manipulate the JSON mapping file manually. 
+- [ ] We will also provide support to fetch the mappings from cache server (both internal or external) too if configured.
+- [ ] Time-based mappings
+
+# References
+1. https://guides.github.com/features/mastering-markdown/
+2. http://mongoosejs.com/docs/index.html
