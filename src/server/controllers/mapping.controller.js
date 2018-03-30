@@ -17,6 +17,9 @@ function getAllUrlMappings(req, res) {
 function getUrlMapping(req, res) {
     service.getAMapping(req.params._id)
             .then(function(result) {
+                if (result === null) {
+                    res.status(200).send('Mapping not found');
+                }
                 res.status(200).send(result);
             });
 }

@@ -56,5 +56,24 @@ describe('Server ', () => {
                 expect(data.body.value).not.toBeNull();
             });
         });
+
+        describe('correct request with mapping which does not exist, then', () => {
+            beforeAll((done) => {
+                request.get('http://localhost:3000/url/example', (error, request, body) => {
+                    data.status = request.statusCode;
+                    data.body = body;
+                    done();
+                });
+            });
+
+            it ('should return valid status code 200', () => {
+                expect(data.status).toBe(200);
+            });
+
+            it('should return requested mapping', () => {
+                expect(data.status).toBe(200);
+                expect(data.body).toEqual('Mapping not found');
+            });
+        });
     });
 });
