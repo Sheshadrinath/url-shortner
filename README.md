@@ -41,19 +41,33 @@ None
     - After successful installation create data/db folder by entering the command `mkdir -p /data/db`. If you receive access or permission related issues use `sudo` command.
     - Now enter the command `mongod` in the terminal to start MongoDB server. In the terminal you should also see a message saying `[initandlisten] waiting for connections on port 27017`.
 
-## Adding items to the mapping
-There is an API already with this service through which new mapping can be added. Please refer to the *api.js* file for more details. Through Postman, please make a POST call to add a new item to the mapping. Adding new item to the mapping collection does not require any service restart. The service updates it's internal collection also updates the file so that the mappings are not lost when service is restarted.
+## Using API's for managing mappings
+Make sure the services are running without any errors. You can create, edit or delete mappings using the client application provided or by using the Postman API tools. 
 
-Open Postman, and make a POST call to http://localhost:3000 with raw body content. Also please remember to send data in JSON format, so please select **JSON(application/json)** while posting the data.
-
-`{
-    "from": "nodejs",
-    "to": "https://www.nodejs.org",
-    "expiry": "2018-04-21 00:00:00"
+### To add a new item
+Enter the address http://hostname:3000/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*
+`{    
+	"key": "key",
+	"value": "<url>",
+	"expiryDate": "<expiry>"
 }`
 
-## Using API's for managing mappings
-*API's to manage URL mappings are being developed, will be updated soon!!*
+### To edit an existing mapping
+Enter the address http://hostname:3000/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*
+`{    
+	"key": "key",
+	"value": "<url>",
+	"expiryDate": "<expiry>"
+}`
+
+### To remove an existing mapping
+Enter the address http://hostname:3000/mapping/key. Select `DELETE` method. 
+
+### To list all mappings
+Enter the address http://hostname:3000/url/urls. Select `GET` method. This should return all existing mappings.
+
+### To retrieve a single mapping
+Enter the address http://hostname:3000/url/key. Select `GET` method. This should return existing mapping.
 
 # Starting and configuring Client application
 *This is about to come. Development is in progress.*
