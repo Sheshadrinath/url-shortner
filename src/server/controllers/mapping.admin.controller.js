@@ -23,6 +23,11 @@ function addNewUrlMapping(req, res) {
 }
 
 function editExistiingUrlMapping(req, res) {
+
+    if (!req.body || !req.body.value) {
+        return res.status(400).send('Invalid data!!');
+    }
+
     service.editExistiingUrlMapping(req.body)
             .then(function(result) {
                 if (result)

@@ -14,7 +14,6 @@ describe('Server', () => {
         mongoose.connect(config.connectionString);
         mongoose.Promise = global.Promise;
         mongoose.connection.once('open', function() {
-            console.log('Mongoose connection established from test case document');
 
             Mapping.find({key: 'google'})
                 .exec(function(error, result) {
@@ -85,6 +84,38 @@ describe('Server', () => {
             });
             it ('should return the existing object', () => {
                 expect(data.status).toEqual(201);
+            });
+        });
+
+        describe('After successful addition, if mapping is edited', () => {
+            var data = {};
+            beforeAll((done) => {
+                request.put('http://localhost:3000/mapping/edit', {json: true, body: { "key": "hp2", "value": "https://www.hp2.com", "expiry": "2100-12-31" }}, 
+                        (error, response, body) => {
+                            data.status = response.statusCode;
+                            data.body = body;
+                            done();
+                        });
+            });
+            it ('should return the existing object', () => {
+                expect(data.status).toEqual(200);
+                expect(data.body).toEqual('Updated mapping successfully!!');
+            });
+        });
+
+        describe('After successful addition, if mapping is edited', () => {
+            var data = {};
+            beforeAll((done) => {
+                request.put('http://localhost:3000/mapping/edit', {json: true, body: { }}, 
+                        (error, response, body) => {
+                            data.status = response.statusCode;
+                            data.body = body;
+                            done();
+                        });
+            });
+            it ('should return the existing object', () => {
+                expect(data.status).toEqual(400);
+                expect(data.body).toEqual('Invalid data!!');
             });
         });
 
