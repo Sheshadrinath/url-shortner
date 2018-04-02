@@ -39,30 +39,6 @@ async function addNewUrlMapping (mapping) {
     return deferred.promise;
 }
 
-function findItemByKey(mapping) {
-    return new Promise((resolve, reject) => {
-        Mapping.find({key: mapping.key})
-            .exec(function(err, result) {
-                if (err) reject(err);
-                else {
-                    resolve(result);
-                }
-            });
-    });
-}
-
-function findItemByValue(mapping) {
-    return new Promise((resolve, reject) => {
-        Mapping.find({value: mapping.value})
-            .exec(function(err, result) {
-                if (err) reject(err);
-                else {
-                    resolve(result);
-                }
-            });
-    });
-}
-
 function editExistiingUrlMapping (mapping) {
     var deferred = q.defer();
 
@@ -87,6 +63,31 @@ function deleteExistingUrlMapping (id) {
     })
 
     return deferred.promise;
+}
+
+//Private functions
+function findItemByKey(mapping) {
+    return new Promise((resolve, reject) => {
+        Mapping.find({key: mapping.key})
+            .exec(function(err, result) {
+                if (err) reject(err);
+                else {
+                    resolve(result);
+                }
+            });
+    });
+}
+
+function findItemByValue(mapping) {
+    return new Promise((resolve, reject) => {
+        Mapping.find({value: mapping.value})
+            .exec(function(err, result) {
+                if (err) reject(err);
+                else {
+                    resolve(result);
+                }
+            });
+    });
 }
 
 module.exports = service;

@@ -8,6 +8,11 @@ router.put('/edit', editExistiingUrlMapping);
 router.delete('/:key', deleteExistingUrlMapping);
 
 function addNewUrlMapping(req, res) {
+
+    if (!req.body || !req.body.value) {
+        return res.status(400).send('Invalid data!!');
+    }
+
     service.addNewUrlMapping(req.body)
             .then(function(result) {
                 if (result)
