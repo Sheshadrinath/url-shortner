@@ -55,6 +55,8 @@ Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method
 }
 ```
 
+**PS:** While adding an item, if there is a mapping already either by key or by value, then the existing item is returned.
+
 ![Image of add mapping](https://github.com/Sheshadrinath/url-shortner/blob/master/resources/images/Add%20Mapping.png?raw=true)
 
 ### To edit an existing mapping
@@ -100,3 +102,4 @@ Currently this application uses the static mapping as you can see in the mapping
 # References
 1. https://guides.github.com/features/mastering-markdown/
 2. http://mongoosejs.com/docs/index.html
+3. https://httpstatuses.com/
