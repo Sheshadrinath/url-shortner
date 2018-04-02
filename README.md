@@ -54,8 +54,10 @@ Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method
 	"expiryDate": "<expiry>"
 }
 ```
-
-**PS:** While adding an item, if there is a mapping already either by key or by value, then the existing item is returned.
+#### Validations
+1. While adding a mapping, if there is a mapping already either by key or by value, then the existing item is returned.
+2. While adding a mapping, if the expiry date is mentioned and if it is older than current date time, then error thrown with status code 400.
+3. While adding a mapping, if the value is not present in the JSON data, then error 400 is thrown.
 
 ![Image of add mapping](https://github.com/Sheshadrinath/url-shortner/blob/master/resources/images/Add%20Mapping.png?raw=true)
 
@@ -68,6 +70,9 @@ Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method
 	"expiryDate": "<expiry>"
 }
 ```
+#### Validations
+1. While adding a mapping, if the expiry date is mentioned and if it is older than current date time, then error thrown with status code 400.
+2. While adding a mapping, if the value is not present in the JSON data, then error 400 is thrown.
 
 ![Image of edit mapping](https://raw.githubusercontent.com/Sheshadrinath/url-shortner/master/resources/images/Edit%20Mapping.png)
 
