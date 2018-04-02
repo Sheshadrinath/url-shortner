@@ -119,6 +119,22 @@ describe('Server', () => {
             });
         });
 
+        describe('After successful addition, if mapping is edited with old date as expiry date', () => {
+            var data = {};
+            beforeAll((done) => {
+                request.put('http://localhost:3000/mapping/edit', {json: true, body: { "key": "hp2", "value": "https://www.hp2.com", "expiry": "1900-12-31" }}, 
+                        (error, response, body) => {
+                            data.status = response.statusCode;
+                            data.body = body;
+                            done();
+                        });
+            });
+            it ('then it should throw error with 400 status code', () => {
+                expect(data.status).toEqual(400);
+                expect(data.body).toEqual('Expiry date cannot be previous');
+            });
+        });
+
         describe('After successful addition, if mapping is edited', () => {
             var data = {};
             beforeAll((done) => {

@@ -30,6 +30,9 @@ function editExistiingUrlMapping(req, res) {
     if (!req.body || !req.body.value) {
         return res.status(400).send('Invalid data!!');
     }
+    if (req.body.expiry && new Date(req.body.expiry) < new Date()) {
+        return res.status(400).send('Expiry date cannot be previous');
+    }
 
     service.editExistiingUrlMapping(req.body)
             .then(function(result) {
