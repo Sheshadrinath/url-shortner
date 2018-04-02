@@ -11,7 +11,7 @@ function addNewUrlMapping(req, res) {
     service.addNewUrlMapping(req.body)
             .then(function(result) {
                 if (result)
-                    res.status(201).send('Added new mapping successfully!!');
+                    res.status(201).send('http://localhost:3000/redirect/' + result[0].key);
                 else 
                     res.status(500).send('Error while adding new mapping');
             });
