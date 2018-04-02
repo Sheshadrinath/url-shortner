@@ -42,6 +42,22 @@ describe('Server', () => {
             expect(data.status).toEqual(201);
         });
 
+        describe('if the mapping data is wrong', () => {
+            var data = {};
+            beforeAll((done) => {
+                request.post('http://localhost:3000/mapping/add', {json: true, body: { }}, 
+                        (error, response, body) => {
+                            data.status = response.statusCode;
+                            data.body = body;
+                            done();
+                        });
+            });
+            it ('should return the existing object', () => {
+                expect(data.status).toEqual(400);
+                expect(data.body).toEqual('Invalid data!!');
+            });
+        });
+
         describe('if the mapping already exists by key', () => {
             var data = {};
             beforeAll((done) => {
@@ -54,14 +70,13 @@ describe('Server', () => {
             });
             it ('should return the existing object', () => {
                 expect(data.status).toEqual(201);
-                console.log(data.body);
             });
         });
 
         describe('if the mapping already exists by value', () => {
             var data = {};
             beforeAll((done) => {
-                request.post('http://localhost:3000/mapping/add', {json: true, body: { "key": "hp", "value": "https://www.hewlettpackard.com", "expiry": "2100-12-31" }}, 
+                request.post('http://localhost:3000/mapping/add', {json: true, body: { "value": "https://www.google.com", "expiry": "2100-12-31" }}, 
                         (error, response, body) => {
                             data.status = response.statusCode;
                             data.body = body;
@@ -70,7 +85,6 @@ describe('Server', () => {
             });
             it ('should return the existing object', () => {
                 expect(data.status).toEqual(201);
-                console.log(data.body);
             });
         });
 
