@@ -87,6 +87,22 @@ describe('Server', () => {
             });
         });
 
+        describe('if the expiry date is old', () => {
+            var data = {};
+            beforeAll((done) => {
+                request.post('http://localhost:3000/mapping/add', {json: true, body: { "key": "hp1", "value": "https://www.google.com", "expiry": "1900-12-31" }}, 
+                        (error, response, body) => {
+                            data.status = response.statusCode;
+                            data.body = body;
+                            done();
+                        });
+            });
+            it ('should throw 400 error with message', () => {
+                expect(data.status).toEqual(400);
+                expect(data.body).toEqual('Expiry date cannot be previous');
+            });
+        });
+
         describe('After successful addition, if mapping is edited', () => {
             var data = {};
             beforeAll((done) => {
