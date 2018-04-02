@@ -45,8 +45,8 @@ Please follow the step-by-step installation and hosting instructions.
 ## Using API's for managing mappings
 Make sure the services are running without any errors. You can create, edit or delete mappings using the client application provided or by using the Postman API tools. 
 
-### To add a new item
-Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*
+### To add a new mapping
+Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*. JSON data must have at least `value`, else 400 error is thrown.
 ```json
 {    
 	"key": "key",
@@ -60,7 +60,7 @@ Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method
 ![Image of add mapping](https://github.com/Sheshadrinath/url-shortner/blob/master/resources/images/Add%20Mapping.png?raw=true)
 
 ### To edit an existing mapping
-Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*
+Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*. JSON data must have at least `value`, else 400 error is thrown.
 ```json
 {
 	"key": "key",

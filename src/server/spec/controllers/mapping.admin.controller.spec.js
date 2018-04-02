@@ -119,6 +119,22 @@ describe('Server', () => {
             });
         });
 
+        describe('After successful addition, while deleting a mapping, then if key is not provided', () => {
+            var data = {};
+            beforeAll((done) => {
+                request.delete('http://localhost:3000/mapping', (error, request, body) => {
+                    data.status = request.statusCode;
+                    data.body = body;
+                    done();
+                });
+            });
+    
+            it ('then error is thrown back with status code 400', () => {
+                expect(data.status).toBe(200);
+                expect(data.body).toEqual('DELETE method');
+            });
+        });
+
         describe('After successful addition, while deleting a new mapping,', () => {
             var data = {};
             beforeAll((done) => {
