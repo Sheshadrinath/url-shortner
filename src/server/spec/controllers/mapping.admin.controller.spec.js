@@ -1,9 +1,31 @@
 var request = require('request');
+var mongoose = require('mongoose');
 
 describe('Server', () => {
     var server = null;
     beforeAll(() => {
         server = require('../../app');
+
+        //Insert seed data if doesn't exist
+        //TODO: Move this seed data insertion to seperate block and invoke from here.
+        var Mapping = require('../../models/Mapping.model');
+        var config = require('../../config/config.json');
+
+        mongoose.connect(config.connectionString);
+        mongoose.Promise = global.Promise;
+        mongoose.connection.once('open', function() {
+            console.log('Mongoose connection established from test case document');
+
+            Mapping.find({key: 'google'})
+                .exec(function(error, result) {
+                    if (error) throw error;
+                    else {
+                        if (result.length == 0) {
+                            Mapping.insertMany({"key": "google", "value": "https://www.google.com"});
+                        }
+                    }
+                })
+        });
     });
 
     describe('While adding a new mapping', () => {
