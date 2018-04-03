@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+/* Required height of parents of the Full Page Intro and Intro itself */
+html,
+body,
+.view {
+  height: 100%;
+  font-family: "brandon-grotesque","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.top-nav-collapse {
+  background-color: #1C2331;
+}
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331;
+  }
+}
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #1C2331;
+}
