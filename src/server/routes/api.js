@@ -3,17 +3,35 @@ const router = express.Router();
 const _ = require('lodash');
 const mappingContent = require('../mapping.json');
 const fs = require('fs');
+const mongoose = require('mongoose');
+const config = require('../config/config.json');
 
-router.get('/', function(req, res) {
+var Mapping = require('../models/Mapping.model');
+
+mongoose.connect(config.connectionString);
+mongoose.Promise = global.Promise;
+mongoose.connection.once('open', function() {
+    console.log('Mongoose connection established from api.js');
+});
+
+router.get('/:id', function(req, res) {
     var queryString = req.url;
-    _.filter(mappingContent.mappings, function(map) {
-        var requestUrl = req.url.replace('/?q=', '');
-        if (map.from.indexOf(requestUrl) > -1) {
-            res.status(301).redirect(map.to);
-            return;
-        }
-    });
-    res.status(404).send('Page Not Found!!');
+    Mapping.findOne({key: req.params.id})
+        .exec(function(err, result) {
+            if (err) throw err;
+            else {
+                if (result) {
+                    if (result.expiry && result.expiry > new Date()) {
+                        res.redirect(result.value);
+                        return;
+                    } else {
+                        res.sendStatus(404);
+                    }
+                } else {
+                    res.sendStatus(404);
+                }
+            }
+        });
 })
 
 router.post('/', function(req, res) {

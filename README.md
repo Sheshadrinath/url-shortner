@@ -51,7 +51,7 @@ Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method
 {    
 	"key": "key",
 	"value": "<url>",
-	"expiryDate": "<expiry>"
+	"expiry": "<expiry>"
 }
 ```
 #### Validations
@@ -67,7 +67,7 @@ Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method
 {
 	"key": "key",
 	"value": "<url>",
-	"expiryDate": "<expiry>"
+	"expiry": "<expiry>"
 }
 ```
 #### Validations

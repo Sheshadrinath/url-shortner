@@ -106,7 +106,7 @@ describe('Server', () => {
         describe('After successful addition, if mapping is edited', () => {
             var data = {};
             beforeAll((done) => {
-                request.put('http://localhost:3000/mapping/edit', {json: true, body: { "key": "hp2", "value": "https://www.hp2.com", "expiry": "2100-12-31" }}, 
+                request.put('http://localhost:3000/mapping/edit', {json: true, body: { "key": "google", "value": "https://www.google.com", "expiry": "2100-12-31" }}, 
                         (error, response, body) => {
                             data.status = response.statusCode;
                             data.body = body;

@@ -23,8 +23,8 @@ describe('Server ', () => {
             expect(data.body.key).not.toBeNull();
             expect(data.body.key).not.toBeUndefined();
             expect(data.body.value).toBe('https://www.apple.com');
-            expect(data.body.expiryDate).not.toBeNull();
-            expect(data.body.expiryDate).not.toBeUndefined();
+            expect(data.body.expiry).not.toBeNull();
+            expect(data.body.expiry).not.toBeUndefined();
         });
     });
 
