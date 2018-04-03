@@ -1,4 +1,4 @@
-# url-shortner
+# Url Shortner
 
 The goal of this tool is to provide the URL shortner service when hosted. User can configure the short url against the full URL in the mapping.json file. When request is received against the key, then the application will redirect the request to the configured webiste.
 
@@ -45,8 +45,8 @@ Please follow the step-by-step installation and hosting instructions.
 ## Using API's for managing mappings
 Make sure the services are running without any errors. You can create, edit or delete mappings using the client application provided or by using the Postman API tools. 
 
-### To add a new item
-Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*
+### To add a new mapping
+Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method. In the body enter like below and select *JSON(application/json)*. JSON data must have at least `value`, else 400 error is thrown.
 ```json
 {    
 	"key": "key",
@@ -54,11 +54,15 @@ Enter the address http://\<hostname\>:\<port\>/mapping/add. Select `POST` method
 	"expiryDate": "<expiry>"
 }
 ```
+#### Validations
+1. While adding a mapping, if there is a mapping already either by key or by value, then the existing item is returned.
+2. While adding a mapping, if the expiry date is mentioned and if it is older than current date time, then error thrown with status code 400.
+3. While adding a mapping, if the value is not present in the JSON data, then error 400 is thrown.
 
 ![Image of add mapping](https://github.com/Sheshadrinath/url-shortner/blob/master/resources/images/Add%20Mapping.png?raw=true)
 
 ### To edit an existing mapping
-Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*
+Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method. In the body enter like below and select *JSON(application/json)*. JSON data must have at least `value`, else 400 error is thrown.
 ```json
 {
 	"key": "key",
@@ -66,6 +70,9 @@ Enter the address http://\<hostname\>:\<port\>/mapping/edit. Select `PUT` method
 	"expiryDate": "<expiry>"
 }
 ```
+#### Validations
+1. While adding a mapping, if the expiry date is mentioned and if it is older than current date time, then error thrown with status code 400.
+2. While adding a mapping, if the value is not present in the JSON data, then error 400 is thrown.
 
 ![Image of edit mapping](https://raw.githubusercontent.com/Sheshadrinath/url-shortner/master/resources/images/Edit%20Mapping.png)
 
@@ -100,3 +107,4 @@ Currently this application uses the static mapping as you can see in the mapping
 # References
 1. https://guides.github.com/features/mastering-markdown/
 2. http://mongoosejs.com/docs/index.html
+3. https://httpstatuses.com/

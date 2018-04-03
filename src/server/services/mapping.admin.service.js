@@ -17,26 +17,25 @@ service.addNewUrlMapping = addNewUrlMapping;
 service.editExistiingUrlMapping = editExistiingUrlMapping;
 service.deleteExistingUrlMapping = deleteExistingUrlMapping;
 
-function addNewUrlMapping (mapping) {
+async function addNewUrlMapping (mapping) {
     var deferred = q.defer();
 
-    Mapping.find({key: mapping.key})
-        .exec(function(err, result) {
-            if (err) deferred.reject(err);
+    var foundItemByKey = await findItemByKey(mapping);
+    var foundItemByVal = await findItemByValue(mapping);
+
+    if (foundItemByKey.length == 0 && foundItemByVal.length == 0) {
+        Mapping.insertMany(mapping, function(insertError, status) {
+            if (insertError) deferred.reject(insertError);
             else {
-                if (result.length == 0) {
-                    Mapping.insertMany(mapping, function(insertError, status) {
-                        if (insertError) deferred.reject(insertError);
-                        else {
-                            deferred.resolve(status);
-                        }
-                    });
-                } else {
-                    deferred.resolve(false);
-                }
+                deferred.resolve(status);
             }
         });
-
+    } else {
+        var result = [];
+        if (foundItemByKey.length > 0 && foundItemByKey[0].key) result.push(foundItemByKey[0]);
+        if (foundItemByVal.length > 0 && foundItemByVal[0].key) result.push(foundItemByVal[0]);
+        deferred.resolve(result);
+    }
     return deferred.promise;
 }
 
@@ -64,6 +63,31 @@ function deleteExistingUrlMapping (id) {
     })
 
     return deferred.promise;
+}
+
+//Private functions
+function findItemByKey(mapping) {
+    return new Promise((resolve, reject) => {
+        Mapping.find({key: mapping.key})
+            .exec(function(err, result) {
+                if (err) reject(err);
+                else {
+                    resolve(result);
+                }
+            });
+    });
+}
+
+function findItemByValue(mapping) {
+    return new Promise((resolve, reject) => {
+        Mapping.find({value: mapping.value})
+            .exec(function(err, result) {
+                if (err) reject(err);
+                else {
+                    resolve(result);
+                }
+            });
+    });
 }
 
 module.exports = service;

@@ -8,16 +8,32 @@ router.put('/edit', editExistiingUrlMapping);
 router.delete('/:key', deleteExistingUrlMapping);
 
 function addNewUrlMapping(req, res) {
+
+    if (!req.body || !req.body.value) {
+        return res.status(400).send('Invalid data!!');
+    }
+    if (req.body.expiry && new Date(req.body.expiry) < new Date()) {
+        return res.status(400).send('Expiry date cannot be previous');
+    }
+
     service.addNewUrlMapping(req.body)
             .then(function(result) {
                 if (result)
-                    res.status(201).send('Added new mapping successfully!!');
+                    res.status(201).send('http://localhost:3000/' + result[0].key); //TODO: Return host name by resolving in code.
                 else 
                     res.status(500).send('Error while adding new mapping');
             });
 }
 
 function editExistiingUrlMapping(req, res) {
+
+    if (!req.body || !req.body.value) {
+        return res.status(400).send('Invalid data!!');
+    }
+    if (req.body.expiry && new Date(req.body.expiry) < new Date()) {
+        return res.status(400).send('Expiry date cannot be previous');
+    }
+
     service.editExistiingUrlMapping(req.body)
             .then(function(result) {
                 if (result)
