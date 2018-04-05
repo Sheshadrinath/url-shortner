@@ -87,6 +87,12 @@ Enter the address http://\<hostname\>:\<port\>/url/urls. Select `GET` method. Th
 ### To retrieve a single mapping
 Enter the address http://\<hostname\>:\<port\>/url/\<key\>. Select `GET` method. This should return existing mapping.
 
+# URL Redirection
+Once the mapping is done, make sure the service is up and running. Open the browser and enter the URL with mapping. For example: http://\<hostname\>:\<port\>/\<key\>. This should redirect the client to the respective configured URL. If the mapping is not found or if the mapping is expired, then error 404 (Page Not found) is displayed to user.
+
+## Auditing
+Each successful redirection is audited. Requestor IP address, used URL and requested date/time is stored in this audit. Data is stored in the AuditLog collection
+
 # Starting and configuring Client application
 *This is about to come. Development is in progress.*
 
