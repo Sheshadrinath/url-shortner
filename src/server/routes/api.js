@@ -5,6 +5,7 @@ const mappingContent = require('../mapping.json');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const config = require('../config/config.json');
+const audit = require('../services/audit.service');
 
 var Mapping = require('../models/Mapping.model');
 
@@ -22,6 +23,7 @@ router.get('/:id', function(req, res) {
             else {
                 if (result) {
                     if (result.expiry && result.expiry > new Date()) {
+                        audit.auditLog(req, result.value);
                         res.redirect(result.value);
                         return;
                     } else {
